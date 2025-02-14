@@ -1,6 +1,16 @@
 import React from "react";
 
 export default function IndexSectionNavigationsGradient1() {
+
+  const [open, setOpen] = React.useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+
+  const links = [
+    { title: "Behangcollecties", description: "INGK boeken op een rij", icon: '', link: '' },
+    { title: "Behang op maat", description: "Hoe doen anderen het?", icon: '', link: '' },
+    { title: "Bestsellers", description: "Add your details here", icon: '', link: '' },
+  ];
+  
   return (
     <React.Fragment>
       <>
@@ -16,7 +26,7 @@ export default function IndexSectionNavigationsGradient1() {
                 />
               </a>
               <div className="lg:hidden ml-auto">
-                <button className="flex items-center p-3 text-white hover:text-yellow-500">
+                <button onClick={() => setMobileNavOpen(!mobileNavOpen)} className="flex items-center p-3 text-white hover:text-yellow-500">
                   <svg
                     className="block h-4 w-4"
                     stroke="currentColor"
@@ -29,13 +39,17 @@ export default function IndexSectionNavigationsGradient1() {
                 </button>
               </div>
               <ul className="hidden lg:flex ml-16 lg:w-auto lg:space-x-12">
-                <li className="relative group">
+                <li className="relative group" onMouseEnter={() => setOpen(!open)} onMouseLeave={() => setOpen(!open)}>
                   <a
                     className="inline-flex items-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
                     href="#"
                   >
                     <span className="mr-3">Behang</span>
-                    <span className="block transform rotate-180">
+                    <span 
+                    className={`block transform  ${
+                      open ? "rotate-180" : ""
+                    }`}
+                  >
                       <svg
                         width={12}
                         height={7}
@@ -53,149 +67,62 @@ export default function IndexSectionNavigationsGradient1() {
                       </svg>
                     </span>
                   </a>
-                  <div className="hidden absolute top-full left-0 px-2 pt-10 bg-black min-w-max z-50">
+                  <div
+                    className={`absolute left-0 z-50  px-2 pt-10 bg-black top-full min-w-max ${
+                      open ? "block" : "hidden"
+                    }`}
+                  >
                     <div className="px-3 pb-2 border-b border-blueGray-800">
-                      <a
-                        className="group relative flex p-5 hover:bg-gray-900 transition duration-200"
-                        href="#"
-                      >
-                        <div className="mr-5">
-                          <svg
-                            width={21}
-                            height={21}
-                            viewBox="0 0 21 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.4717 6.33333V19.875M10.4717 6.33333C10.4717 6.33333 10.4717 4.77836 10.4717 4.25C10.4717 3.09941 11.4038 2.16667 12.5537 2.16667C13.7036 2.16667 14.6357 3.09941 14.6357 4.25C14.6357 5.40059 13.7036 6.33333 12.5537 6.33333C11.9319 6.33333 10.4717 6.33333 10.4717 6.33333ZM10.4717 6.33333C10.4717 6.33333 10.4717 4.31553 10.4717 3.72917C10.4717 2.29093 9.30649 1.125 7.86914 1.125C6.4318 1.125 5.2666 2.29093 5.2666 3.72917C5.2666 5.16741 6.4318 6.33333 7.86914 6.33333C8.72048 6.33333 10.4717 6.33333 10.4717 6.33333ZM3.18457 10.5H17.7588M3.18457 10.5C2.0347 10.5 1.10254 9.56726 1.10254 8.41667C1.10254 7.26607 2.0347 6.33333 3.18457 6.33333H17.7588C18.9087 6.33333 19.8408 7.26607 19.8408 8.41667C19.8408 9.56726 18.9087 10.5 17.7588 10.5M3.18457 10.5L3.18457 17.7917C3.18457 18.9423 4.11673 19.875 5.2666 19.875H15.6768C16.8266 19.875 17.7588 18.9423 17.7588 17.7917V10.5"
-                              stroke="#A1A4A8"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <div className="mr-24">
-                          <span className="block font-bold text-white">
-                            Behangcollecties
-                          </span>
-                          <span className="text-gray-500">
-                            INGK boeken op een rij
-                          </span>
-                        </div>
-                        <div className="hidden group-hover:block absolute right-0 top-1/2 mr-6 transform -translate-y-1/2 self-center">
-                          <svg
-                            width={21}
-                            height={20}
-                            viewBox="0 0 21 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.4471 4.16675L18.2768 10.0001M18.2768 10.0001L12.4471 15.8334M18.2768 10.0001L3.28613 10.0001"
-                              stroke="#F2FF5A"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                      <a
-                        className="group relative flex p-5 hover:bg-gray-900 transition duration-200"
-                        href="#"
-                      >
-                        <div className="mr-5">
-                          <svg
-                            width={21}
-                            height={21}
-                            viewBox="0 0 21 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.4717 6.33333V19.875M10.4717 6.33333C10.4717 6.33333 10.4717 4.77836 10.4717 4.25C10.4717 3.09941 11.4038 2.16667 12.5537 2.16667C13.7036 2.16667 14.6357 3.09941 14.6357 4.25C14.6357 5.40059 13.7036 6.33333 12.5537 6.33333C11.9319 6.33333 10.4717 6.33333 10.4717 6.33333ZM10.4717 6.33333C10.4717 6.33333 10.4717 4.31553 10.4717 3.72917C10.4717 2.29093 9.30649 1.125 7.86914 1.125C6.4318 1.125 5.2666 2.29093 5.2666 3.72917C5.2666 5.16741 6.4318 6.33333 7.86914 6.33333C8.72048 6.33333 10.4717 6.33333 10.4717 6.33333ZM3.18457 10.5H17.7588M3.18457 10.5C2.0347 10.5 1.10254 9.56726 1.10254 8.41667C1.10254 7.26607 2.0347 6.33333 3.18457 6.33333H17.7588C18.9087 6.33333 19.8408 7.26607 19.8408 8.41667C19.8408 9.56726 18.9087 10.5 17.7588 10.5M3.18457 10.5L3.18457 17.7917C3.18457 18.9423 4.11673 19.875 5.2666 19.875H15.6768C16.8266 19.875 17.7588 18.9423 17.7588 17.7917V10.5"
-                              stroke="#A1A4A8"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <div className="mr-24">
-                          <span className="block font-bold text-white">
-                            Behang op maat
-                          </span>
-                          <span className="text-gray-500">
-                            Hoe doen anderen het?
-                          </span>
-                        </div>
-                        <div className="hidden group-hover:block absolute right-0 top-1/2 mr-6 transform -translate-y-1/2 self-center">
-                          <svg
-                            width={21}
-                            height={20}
-                            viewBox="0 0 21 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.4471 4.16675L18.2768 10.0001M18.2768 10.0001L12.4471 15.8334M18.2768 10.0001L3.28613 10.0001"
-                              stroke="#F2FF5A"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                      <a
-                        className="group relative flex p-5 hover:bg-gray-900 transition duration-200"
-                        href="#"
-                      >
-                        <div className="mr-5">
-                          <svg
-                            width={21}
-                            height={21}
-                            viewBox="0 0 21 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M10.4717 6.33333V19.875M10.4717 6.33333C10.4717 6.33333 10.4717 4.77836 10.4717 4.25C10.4717 3.09941 11.4038 2.16667 12.5537 2.16667C13.7036 2.16667 14.6357 3.09941 14.6357 4.25C14.6357 5.40059 13.7036 6.33333 12.5537 6.33333C11.9319 6.33333 10.4717 6.33333 10.4717 6.33333ZM10.4717 6.33333C10.4717 6.33333 10.4717 4.31553 10.4717 3.72917C10.4717 2.29093 9.30649 1.125 7.86914 1.125C6.4318 1.125 5.2666 2.29093 5.2666 3.72917C5.2666 5.16741 6.4318 6.33333 7.86914 6.33333C8.72048 6.33333 10.4717 6.33333 10.4717 6.33333ZM3.18457 10.5H17.7588M3.18457 10.5C2.0347 10.5 1.10254 9.56726 1.10254 8.41667C1.10254 7.26607 2.0347 6.33333 3.18457 6.33333H17.7588C18.9087 6.33333 19.8408 7.26607 19.8408 8.41667C19.8408 9.56726 18.9087 10.5 17.7588 10.5M3.18457 10.5L3.18457 17.7917C3.18457 18.9423 4.11673 19.875 5.2666 19.875H15.6768C16.8266 19.875 17.7588 18.9423 17.7588 17.7917V10.5"
-                              stroke="#A1A4A8"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <div className="mr-24">
-                          <span className="block font-bold text-white">
-                            Bestsellers
-                          </span>
-                          <span className="text-gray-500">
-                            Add your details here
-                          </span>
-                        </div>
-                        <div className="hidden group-hover:block absolute right-0 top-1/2 mr-6 transform -translate-y-1/2 self-center">
-                          <svg
-                            width={21}
-                            height={20}
-                            viewBox="0 0 21 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.4471 4.16675L18.2768 10.0001M18.2768 10.0001L12.4471 15.8334M18.2768 10.0001L3.28613 10.0001"
-                              stroke="#F2FF5A"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      </a>
+                      {links.map((link, index) => (
+                        <a
+                          key={index}
+                          className="group relative flex p-5 hover:bg-gray-900 transition duration-200"
+                          href="#"
+                        >
+                          <div className="mr-5">
+                            <svg
+                              width={21}
+                              height={21}
+                              viewBox="0 0 21 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.4717 6.33333V19.875M10.4717 6.33333C10.4717 6.33333 10.4717 4.77836 10.4717 4.25C10.4717 3.09941 11.4038 2.16667 12.5537 2.16667C13.7036 2.16667 14.6357 3.09941 14.6357 4.25C14.6357 5.40059 13.7036 6.33333 12.5537 6.33333C11.9319 6.33333 10.4717 6.33333 10.4717 6.33333ZM10.4717 6.33333C10.4717 6.33333 10.4717 4.31553 10.4717 3.72917C10.4717 2.29093 9.30649 1.125 7.86914 1.125C6.4318 1.125 5.2666 2.29093 5.2666 3.72917C5.2666 5.16741 6.4318 6.33333 7.86914 6.33333C8.72048 6.33333 10.4717 6.33333 10.4717 6.33333ZM3.18457 10.5H17.7588M3.18457 10.5C2.0347 10.5 1.10254 9.56726 1.10254 8.41667C1.10254 7.26607 2.0347 6.33333 3.18457 6.33333H17.7588C18.9087 6.33333 19.8408 7.26607 19.8408 8.41667C19.8408 9.56726 18.9087 10.5 17.7588 10.5M3.18457 10.5L3.18457 17.7917C3.18457 18.9423 4.11673 19.875 5.2666 19.875H15.6768C16.8266 19.875 17.7588 18.9423 17.7588 17.7917V10.5"
+                                stroke="#A1A4A8"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <div className="mr-24">
+                            <span className="block font-bold text-white">
+                              {link.title}
+                            </span>
+                            <span className="text-gray-500">
+                              {link.description}
+                            </span>
+                          </div>
+                          <div className="hidden group-hover:block absolute right-0 top-1/2 mr-6 transform -translate-y-1/2 self-center">
+                            <svg
+                              width={21}
+                              height={20}
+                              viewBox="0 0 21 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.4471 4.16675L18.2768 10.0001M18.2768 10.0001L12.4471 15.8334M18.2768 10.0001L3.28613 10.0001"
+                                stroke="#F2FF5A"
+                                strokeWidth={2}
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </a>
+                      ))}
                     </div>
                     <div className="px-8 py-5">
                       <span className="block mb-2 text-sm font-medium text-gray-400">
@@ -324,8 +251,8 @@ export default function IndexSectionNavigationsGradient1() {
               </div>
             </div>
           </nav>
-          <div className="hidden fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
-            <div className="fixed inset-0 bg-gray-800 opacity-25" />
+          <div className={` top-0 left-0 bottom-0 w-5/6 max-w-sm z-50 ${mobileNavOpen ? 'block fixed' : 'hidden'}`}>
+            <div onClick={() => setMobileNavOpen(!mobileNavOpen)} className="fixed inset-0 bg-gray-800 opacity-25" />
             <nav className="relative flex flex-col py-6 px-6 w-full h-full bg-white border-r overflow-y-auto">
               <div className="flex items-center mb-8">
                 <a
@@ -333,13 +260,13 @@ export default function IndexSectionNavigationsGradient1() {
                   href="#"
                 >
                   <img
-                    className="h-6"
-                    src="vendia-assets/logos/vendia-dark.svg"
+                    className="h-16"
+                    src="https://static.shuffle.dev/uploads/files/bc/bcd57fd02e367e0ce0723a9e974efe34745c05c0/LOGO-GEK-OP-BEHANG-2-TRANS-01-png-1739461585717.webp"
                     alt
                     width="auto"
                   />
                 </a>
-                <button>
+                <button onClick={() => setMobileNavOpen(!mobileNavOpen)}>
                   <svg
                     className="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-500"
                     xmlns="http://www.w3.org/2000/svg"
@@ -363,7 +290,7 @@ export default function IndexSectionNavigationsGradient1() {
                       className="block p-4 font-medium text-black hover:bg-gray-50"
                       href="#"
                     >
-                      Why Vendia?
+                      Waarom Gek op behang?
                     </a>
                   </li>
                   <li className="mb-1">
@@ -371,7 +298,7 @@ export default function IndexSectionNavigationsGradient1() {
                       className="block p-4 font-medium text-black hover:bg-gray-50"
                       href="#"
                     >
-                      Browse
+                      Behang doorzoeken
                     </a>
                   </li>
                   <li className="mb-1">
@@ -379,7 +306,7 @@ export default function IndexSectionNavigationsGradient1() {
                       className="block p-4 font-medium text-black hover:bg-gray-50"
                       href="#"
                     >
-                      Resources
+                      Op maat gemaakt
                     </a>
                   </li>
                   <li className="mb-1">
@@ -387,7 +314,7 @@ export default function IndexSectionNavigationsGradient1() {
                       className="block p-4 font-medium text-black hover:bg-gray-50"
                       href="#"
                     >
-                      Brands
+                      Inspiratie
                     </a>
                   </li>
                 </ul>
